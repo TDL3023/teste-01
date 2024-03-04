@@ -1,0 +1,40 @@
+$(document).ready(function() {
+    // Abrir o modal para adicionar Pokémon
+    $('#addPokemonBtn').click(function() {
+        $('#addPokemonModal').css('display', 'block');
+    });
+
+    // Fechar o modal
+    $('.close').click(function() {
+        $('#addPokemonModal').css('display', 'none');
+    });
+
+    // Enviar o formulário para adicionar Pokémon
+    $('#addPokemonForm').submit(function(event) {
+        event.preventDefault();
+        var pokemonId = $('#pokemonId').val();
+        addPokemon(pokemonId);
+        $('#addPokemonModal').css('display', 'none');
+        $('#pokemonId').val('');
+    });
+
+    // Função para adicionar Pokémon à tabela
+    function addPokemon(pokemonId) {
+        $.ajax({
+            url: 'fetch_pokemon.php',
+            type: 'POST',
+            data: { pokemon_id: pokemonId },
+            success: function(data) {
+                $('#pokemonTable tbody').append(data);
+            },
+            error: function(xhr, status, error) {
+                alert('Erro ao adicionar Pokémon: ' + error);
+            }
+        });
+    }
+
+    // Remover linha da tabela
+    $(document).on('click', '.deleteBtn', function() {
+        $(this).closest('tr').remove();
+    });
+});

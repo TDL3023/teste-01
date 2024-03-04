@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokémon Info</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pokémon Info</h1>
+        <button id="addPokemonBtn" class="btn btn-primary">Adicionar Pokémon</button>
+        <table id="pokemonTable" class="display">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Tipos</th>
+                    <th>Imagem</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Conteúdo da tabela -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal para adicionar Pokémon -->
+    <div id="addPokemonModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="addPokemonForm">
+                <label for="pokemonIds">IDs do Pokémon (separados por vírgula):</label>
+                <input type="text" id="pokemonIds" name="pokemonIds">
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
